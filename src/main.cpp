@@ -1,7 +1,9 @@
 #include "main.h"
+#include "btree.h"
 #include <iostream>
 
 int main(){
-    std::cout << "test" << std::endl;
+    BTree<int, std::string> test;
+    test.insert(5, "collin");
     return 0;
 }
