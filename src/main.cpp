@@ -1,8 +1,9 @@
 #include "main.h"
 #include "btree.hpp"
+#include "hasht.hpp"
 #include <iostream>
 
 int main(){
-    BTree<int, std::string> test;
+    hashTable<int> t(1000);
     return 0;
 }
