@@ -7,8 +7,6 @@ class hashTable{
     public:
         hashTable();
 
-        hashTable(unsigned size);
-
         ~hashTable();
 
         T & operator[](std::string);
@@ -17,6 +15,8 @@ class hashTable{
 
     private:
         T * arr;
+
+        void resize();
 
         unsigned arrSize;
 
@@ -33,22 +33,15 @@ hashTable<T>::hashTable(){
 }
 
 template <class T>
-hashTable<T>::hashTable(unsigned size){
-    arr = new T[size];
-    for(unsigned i = 0; i < size; i++){
-        arr[i] = T();
-    }
-    arrSize = size;
-}
-
-template <class T>
 hashTable<T>::~hashTable(){
     delete [] arr;
 }
 
 template <class T>
 void hashTable<T>::insert(std::string key, T val){
-    
+    if(arr[hash(key)] != T()){
+
+    }
 }
 
 template <class T>
@@ -58,6 +51,11 @@ unsigned hashTable<T>::hash(std::string input){
         sum += pow(unsigned(input[i]), i);
     }
     return sum % arrSize;
+}
+
+template <class T>
+void hashTable<T>::resize(){
+
 }
 
 template <class T>

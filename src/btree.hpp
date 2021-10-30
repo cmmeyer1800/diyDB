@@ -21,12 +21,12 @@ class BTree
 
         inline bool operator<(const DataPair &rhs) const
         {
-            return this->key < rhs.key;
+            return key < rhs.key;
         }
 
         inline bool operator<(const K &rhs) const
         {
-            return this->key < rhs;
+            return key < rhs;
         }
 
         inline friend bool operator<(const K &lhs, const DataPair &rhs)
@@ -36,7 +36,7 @@ class BTree
 
         inline bool operator>(const DataPair &rhs) const
         {
-            return this->key > rhs.key;
+            return key > rhs.key;
         }
 
         inline friend bool operator>(const K &lhs, const DataPair &rhs)
@@ -46,17 +46,17 @@ class BTree
 
         inline bool operator>(const K &rhs) const
         {
-            return this->key > rhs;
+            return key > rhs;
         }
 
         inline bool operator==(const DataPair &rhs) const
         {
-            return this->key == rhs.key;
+            return key == rhs.key;
         }
 
         inline bool operator==(const K &rhs) const
         {
-            return this->key == rhs;
+            return key == rhs;
         }
 
         inline friend bool operator==(const K &lhs, const DataPair &rhs)

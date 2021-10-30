@@ -1,9 +1,15 @@
 #include "main.h"
-#include "btree.hpp"
-#include "hasht.hpp"
-#include <iostream>
+#include "cli.hpp"
 
 int main(){
-    hashTable<int> t(1000);
+    CLI cli;
+    std::cout << "\x1B[2J\x1B[H";
+    bool running = true;
+    while(running){
+        if(!cli.takeOptions()){
+            running = false;
+        }
+        std::cout << "\x1B[2J\x1B[H";
+    }
     return 0;
 }
