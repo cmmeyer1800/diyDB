@@ -14,12 +14,11 @@ jobs:
       - name: Update apt
         run: |
           sudo apt-get update
-    steps:
+
       - name: install g++
         run: |
           sudo apt-get install g++
 
-    steps:
       - name: Test with catch2
         run: |
           make clean
