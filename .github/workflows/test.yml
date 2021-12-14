@@ -11,6 +11,11 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
+      - name: test
+        shell: bash
+        run: |
+          pwd
+        
       - name: Update apt
         shell: bash
         run: |
