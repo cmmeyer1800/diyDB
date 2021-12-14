@@ -2,5 +2,4 @@
 
 TEST_CASE("testing testing"){
     REQUIRE(1 == 1);
-    REQUIRE(1 != 1);
 }
