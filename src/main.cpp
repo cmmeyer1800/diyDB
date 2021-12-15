@@ -1,5 +1,6 @@
+#include "btree.hpp"
 #include <iostream>
 
 int main(){
-    std::cout << "Hello World!";
+    ds::BTree<int, int> test(10);
 }
