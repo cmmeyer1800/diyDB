@@ -5,14 +5,45 @@ struct KVPair{
     K key;
     V val;
     
-    
     KVPair(K k, V v);
     KVPair();
 
-    bool operator>(const KVPair<K,V> & other) const;
-    bool operator<(const KVPair<K,V> & other) const;
-    bool operator==(const KVPair<K,V> & other) const;
-    bool operator!=(const KVPair<K,V> & other) const;
+    inline bool operator<(const KVPair& rhs) const{
+        return this->key < rhs.key;
+    }
+
+    inline bool operator<(const K& rhs) const{
+        return this->key < rhs;
+    }
+
+    inline friend bool operator<(const K& lhs, const KVPair& rhs)
+    {
+        return lhs < rhs.key;
+    }
+
+    inline bool operator>(const KVPair& rhs) const{
+        return this->key > rhs.key;
+    }
+
+    inline friend bool operator>(const K& lhs, const KVPair& rhs){
+        return lhs > rhs.key;
+    }
+
+    inline bool operator>(const K& rhs) const{
+        return this->key > rhs;
+    }
+
+    inline bool operator==(const KVPair& rhs) const{
+        return this->key == rhs.key;
+    }
+
+    inline bool operator==(const K& rhs) const{
+        return this->key == rhs;
+    }
+
+    inline friend bool operator==(const K& lhs, const KVPair& rhs){
+        return lhs == rhs.key;
+    }
 };
 
 
@@ -21,23 +52,3 @@ KVPair<K,V>::KVPair(K k, V v) : key(k), val(v){}
 
 template<class K, class V>
 KVPair<K,V>::KVPair() : key(K()), val(V()){}
-
-template<class K, class V>
-bool KVPair<K,V>::operator>(const KVPair<K,V> & other) const{
-    return key > other.key;
-}
-
-template<class K, class V>
-bool KVPair<K,V>::operator<(const KVPair<K,V> & other) const{
-    return other.key > key;
-}
-
-template<class K, class V>
-bool KVPair<K,V>::operator==(const KVPair<K,V> & other) const{
-    return key == other.key;
-}
-
-template<class K, class V>
-bool KVPair<K,V>::operator!=(const KVPair<K,V> & other) const{
-    return key != other.key;
-}
