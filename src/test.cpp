@@ -25,10 +25,6 @@ TEST_CASE("String Key BTree"){
     ds::BTree<unsigned, std::string> test(100);
     test.insert(alg::hash("test"), "success");
 
-    SECTION("Find Missing Key"){
-        REQUIRE(test[22] == std::string());
-    }
-
     SECTION("Find On Small BTree"){
         REQUIRE(test.find(alg::hash("test")) == "success");
     }
