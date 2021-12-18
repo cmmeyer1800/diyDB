@@ -4,5 +4,4 @@
 namespace alg{
 
     unsigned hash(std::string input);
-
 };

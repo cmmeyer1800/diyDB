@@ -1,5 +1,6 @@
 #include "btree.hpp"
 #include "hash.h"
+#include "dict.hpp"
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -7,8 +8,8 @@
 #include <time.h>
 
 int main(int argc, char *argv[]){
-    ds::BTree<unsigned, std::string> test(100);
-    test.insert(alg::hash("test"), "sucess");
-    test.insert(alg::hash("test"), "test");
-    std::cout << test[alg::hash("test")];
+    ds::Dict<double> gpa;
+    gpa.insert("Collin_Meyer", 3.72);
+    std::cout << gpa["Collin_Meyer"];
+    std::cout << gpa["test"];
 }

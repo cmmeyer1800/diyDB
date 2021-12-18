@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "kvpair.hpp"
+#include "errors.h"
 
 namespace ds{
 
@@ -147,12 +148,22 @@ namespace ds{
     
     template <class K, class V>
     V BTree<K, V>::find(const K& key) const{
-        return root == nullptr ? V() : find(root, key);
+        if(root == NULL){
+            throw KeyNotFound();
+        }
+        else{
+            return find(root, key);
+        }
     }
 
     template<class K, class V>
     V BTree<K,V>::operator[](const K& key) const{
-        return root == nullptr ? V() : find(root, key);
+        if(root == NULL){
+            throw KeyNotFound();
+        }
+        else{
+            return find(root, key);
+        }
     }
 
     template <class K, class V>
@@ -166,13 +177,13 @@ namespace ds{
             }
         }
         if (subroot->is_leaf){
-            return V();
+            throw KeyNotFound();
         }
         else{
             return find(subroot->children[first_larger_idx], key);
         }
 
-        return V();
+        throw KeyNotFound();
     }
 
     template <class K, class V>

@@ -11,5 +11,4 @@ namespace alg{
         }
         return ret % std::numeric_limits<unsigned>::max();
     }
-
 };
