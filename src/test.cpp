@@ -1,6 +1,7 @@
 #include "catch.hpp"
 #include "hash.h"
 #include "btree.hpp"
+#include "errors.h"
 #include <stdlib.h>
 #include <limits.h>
 #include <time.h>
@@ -24,6 +25,17 @@ TEST_CASE("Test Large BTree: UINT Key"){
 TEST_CASE("String Key BTree"){
     ds::BTree<unsigned, std::string> test(100);
     test.insert(alg::hash("test"), "success");
+
+    SECTION("Find On Empty BTree"){
+        bool success = false;
+        try{
+            std::string s = test[22];
+        }
+        catch(const std::exception& e){
+            success = true;
+        }
+        REQUIRE(success);
+    }
 
     SECTION("Find On Small BTree"){
         REQUIRE(test.find(alg::hash("test")) == "success");
