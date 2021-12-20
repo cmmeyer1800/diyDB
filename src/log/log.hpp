@@ -43,10 +43,11 @@ class Log{
             file.close();
         }
 
-        void pull(){
+        char *  pull(){
             std::ifstream file(filename, std::ios::binary);
             if(!file){
                 throw FileNotOpen();
+                return NULL;
             }
             else{
                 file.seekg(0, file.end);
@@ -55,6 +56,8 @@ class Log{
                 char * buffer = new char[length];
                 file.read(buffer,length);
                 file.close();
+                return buffer;
             }
+            return NULL;
         }
 };
