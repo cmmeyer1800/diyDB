@@ -9,3 +9,7 @@ struct KeyNotFound : public std::exception{
 struct DictOverflow : public std::exception{
 	const char * what () const throw ();
 };
+
+struct FileNotOpen : public std::exception{
+	const char * what () const throw ();
+};
