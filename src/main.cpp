@@ -7,9 +7,8 @@
 #include <fstream>
 
 int main(int argc, char *argv[]){
-  // ds::Dict<unsigned> d;
-  // d.insert("Collin", 100);
-
   ds::Dict<unsigned> t(true);
-  std::cout << t["Collin"];
+  // t.insert("test", 123);
+  // t.insert("test2", 321);
+  std::cout << t["test"] << std::endl;
 }

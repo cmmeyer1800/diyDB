@@ -21,24 +21,26 @@ namespace ds{
 
             void rebuild(){
                 V t = V();
-                size_t size(t);
+                size_t size = sizeof(t);
                 bool inVal = false;
                 std::string temp;
                 size_t count = 0;
 
                 char * memory = log_.pull();
 
-                for(size_t i = 0; i < log_.len(); i++){
+                for(size_t i = 0; i <= log_.len(); i++){
                     if(inVal){
                         if(count >= size){
                             inVal = false;
                             count = 0;
+                            // std::cout << temp << " , " << t << std::endl;
                             tree_.insert(alg::hash(temp), t);
                             temp.clear();
+                            i -= 1;
                             continue;
                         }
                         else{
-                            t = t | (((unsigned)(memory[i])) << (size-count-1));
+                            t = t | (((unsigned)(memory[i])) << (8*(size-count-1)));
                             count += 1;
                         }
                     }
