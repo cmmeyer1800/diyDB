@@ -3,6 +3,7 @@
 #include <string>
 #include <limits>
 #include "hash.h"
+#include "log.hpp"
 #include "btree.hpp"
 
 namespace ds{
@@ -14,11 +15,54 @@ namespace ds{
 
             BTree<unsigned, V> tree_;
 
+            Log<V> log_;
+
             unsigned count_;
+
+            void rebuild(){
+                V t = V();
+                size_t size(t);
+                bool inVal = false;
+                std::string temp;
+                size_t count = 0;
+
+                char * memory = log_.pull();
+
+                for(size_t i = 0; i < log_.len(); i++){
+                    if(inVal){
+                        if(count >= size){
+                            inVal = false;
+                            count = 0;
+                            tree_.insert(alg::hash(temp), t);
+                            temp.clear();
+                            continue;
+                        }
+                        else{
+                            t = t | (((unsigned)(memory[i])) << (size-count-1));
+                            count += 1;
+                        }
+                    }
+                    else{
+                        if(memory[i] != 0){
+                            temp.append(1, memory[i]);
+                        }
+                        else{
+                            inVal = true;
+                            t = V();
+                            i += 1;
+                        }
+                    }
+                }
+                delete[] memory;
+            }
 
         public:
 
-            Dict() : tree_(100), count_(0){}
+            Dict(bool build = false) : tree_(100), count_(0){
+                if(build){
+                    rebuild();
+                }
+            }
 
             void insert(std::string key, V value){
                 if(count_ > std::numeric_limits<unsigned>::max()){
@@ -26,6 +70,7 @@ namespace ds{
                 }
                 else{
                     tree_.insert(alg::hash(key), value);
+                    log_.commit(key, value);
                     count_++;
                 }
             }

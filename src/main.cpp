@@ -7,8 +7,9 @@
 #include <fstream>
 
 int main(int argc, char *argv[]){
-  Log<unsigned> log;
-  log.commit("Collin", 100);
-  log.commit("Megan", 20);
-  log.pull();
+  // ds::Dict<unsigned> d;
+  // d.insert("Collin", 100);
+
+  ds::Dict<unsigned> t(true);
+  std::cout << t["Collin"];
 }
