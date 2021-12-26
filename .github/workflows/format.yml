@@ -13,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Set commit details
+        shell: bash
+        run: |
+          git config user.name "Server"
+          git config user.email "null@null.com"
+
       - name: Run python auto formatting script
         shell: bash
         run: |
