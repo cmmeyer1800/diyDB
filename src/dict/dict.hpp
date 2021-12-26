@@ -2,6 +2,7 @@
 
 #include <limits>
 #include <string>
+#include <string.h>
 
 #include "btree.hpp"
 #include "hash.h"
@@ -33,13 +34,15 @@ class Dict {
         if (count >= size) {
           inVal = false;
           count = 0;
-          DSet<V> d = {t};
+          DSet<V> d;
+          strcpy(d.c, t);
           tree_.insert(alg::hash(temp), d.v);
           temp.clear();
           i -= 1;
           continue;
         } else {
           t[count] = memory[i];
+          count++;
         }
       } else {
         if (memory[i] != 0) {

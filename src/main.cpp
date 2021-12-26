@@ -9,5 +9,5 @@
 #include "log.hpp"
 
 int main(int argc, char* argv[]){
-  ds::Dict<double> d;
+  ds::Dict<double> d(true);
 }
