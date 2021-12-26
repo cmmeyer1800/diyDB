@@ -1,8 +1,9 @@
 #pragma once
 
+#include <string.h>
+
 #include <limits>
 #include <string>
-#include <string.h>
 
 #include "btree.hpp"
 #include "hash.h"
