@@ -8,7 +8,6 @@
 #include "hash.h"
 #include "log.hpp"
 
-int main(int argc, char *argv[]) {
-  ds::Dict<unsigned> t(true);
-  std::cout << t["Collin"] << std::endl;
+int main(int argc, char* argv[]){
+  ds::Dict<double> d;
 }

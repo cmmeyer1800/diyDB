@@ -19,8 +19,9 @@ class Dict {
   unsigned count_;
 
   void rebuild() {
-    V t = V();
-    size_t size = sizeof(t);
+    V tr;
+    size_t size = sizeof(tr);
+    char t[size];
     bool inVal = false;
     std::string temp;
     size_t count = 0;
@@ -32,20 +33,19 @@ class Dict {
         if (count >= size) {
           inVal = false;
           count = 0;
-          tree_.insert(alg::hash(temp), t);
+          DSet<V> d = {t};
+          tree_.insert(alg::hash(temp), d.v);
           temp.clear();
           i -= 1;
           continue;
         } else {
-          t = t | (((unsigned)(memory[i])) << (8 * (size - count - 1)));
-          count += 1;
+          t[count] = memory[i];
         }
       } else {
         if (memory[i] != 0) {
           temp.append(1, memory[i]);
         } else {
           inVal = true;
-          t = V();
         }
       }
     }

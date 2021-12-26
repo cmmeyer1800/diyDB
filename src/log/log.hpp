@@ -24,9 +24,8 @@ class Log {
   }
 
   void write(std::ofstream& ofs, V value) {
-    const char* mem = binary_conv<V>(value);
-    ofs.write(mem, sizeof(mem) / 2);
-    delete[] mem;
+    DSet<V> ds = {value};
+    ofs.write(ds.c, sizeof(ds.c));
   }
 
  public:
