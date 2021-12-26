@@ -9,6 +9,6 @@
 #include "log.hpp"
 
 int main(int argc, char *argv[]) {
-  ds::Dict<unsigned> t(true);
-  std::cout << t["Timmothy"] << std::endl;
+  ds::Dict<unsigned> t;
+  t.insert("Collin", 300);
 }

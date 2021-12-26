@@ -32,9 +32,9 @@ jobs:
       - name: Commit changed files
         shell: bash
         run: |
-          git commit -m "Auto formatter run"
+          git commit -m "Auto formatter run" --allow-empty
 
       - name: Push commit
         shell: bash
         run: |
-          git push
+          git push -f
