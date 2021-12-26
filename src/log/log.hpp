@@ -18,8 +18,9 @@ class Log {
   size_t length_;
 
   void write(std::ofstream& ofs, std::string key) {
-    const char* out = key.c_str();
-    ofs.write(out, sizeof(out));
+    ofs << key;
+    char null[1] = {0};
+    ofs.write(null, 1);
   }
 
   void write(std::ofstream& ofs, V value) {

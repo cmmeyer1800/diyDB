@@ -32,7 +32,6 @@ class Dict {
         if (count >= size) {
           inVal = false;
           count = 0;
-          // std::cout << temp << " , " << t << std::endl;
           tree_.insert(alg::hash(temp), t);
           temp.clear();
           i -= 1;
@@ -47,7 +46,6 @@ class Dict {
         } else {
           inVal = true;
           t = V();
-          i += 1;
         }
       }
     }
