@@ -8,10 +8,15 @@
 namespace alg {
 
 unsigned hash(std::string input) {
-  unsigned ret = 0;
-  for (size_t count = 0; count < input.length(); count++) {
-    ret += pow(static_cast<unsigned>(input.at(count)), count + 1);
+  unsigned hash = 0;
+  for (size_t i = 0; i < input.length(); i++) {
+    hash += input[i];
+    hash += (hash << 10);
+    hash ^= (hash >> 6);
   }
-  return ret % std::numeric_limits<unsigned>::max();
+  hash += (hash << 3);
+  hash ^= (hash >> 11);
+  hash += (hash << 15);
+  return hash;
 }
 };  // namespace alg
