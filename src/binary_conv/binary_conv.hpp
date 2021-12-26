@@ -1,7 +1,7 @@
 #pragma once
 
 template <class T>
-union DSet{
+union DSet {
   T v;
   char c[sizeof(T)];
 };

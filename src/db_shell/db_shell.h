@@ -1,8 +1,6 @@
 #pragma once
 
-class DBShell{
-    private:
-
-    public:
-
+class DBShell {
+ private:
+ public:
 };
