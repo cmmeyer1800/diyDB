@@ -12,21 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: test
-        shell: bash
-        run: |
-          cd ..
-          tree
-        
-      - name: Update apt
-        shell: bash
-        run: |
-          sudo apt-get update
-
-      - name: install g++
-        shell: bash
-        run: |
-          sudo apt-get install g++
 
       - name: Test with catch2
         shell: bash
