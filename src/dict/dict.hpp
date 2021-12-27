@@ -73,26 +73,23 @@ class Dict {
     }
   }
 
-  V find(std::string key){
-    if(!table_.contains(key)){
+  V find(std::string key) {
+    if (!table_.contains(key)) {
       throw KeyNotFound();
-    }
-    else{
+    } else {
       return table_[key];
     }
   }
 
-  void remove(std::string key){
-    if(!table_.contains(key)){
+  void remove(std::string key) {
+    if (!table_.contains(key)) {
       throw KeyNotFound();
-    }
-    else{
+    } else {
       table_.erase(key);
     }
   }
 
-  void clearWAL() {remove("wal.bin"); }
-
+  void clearWAL() { remove("wal.bin"); }
 };
 
 };  // namespace ds
