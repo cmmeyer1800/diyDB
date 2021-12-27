@@ -6,8 +6,7 @@
 #include <limits>
 #include <string>
 
-#include "btree.hpp"
-#include "hash.h"
+#include "hashtable.hpp"
 #include "log.hpp"
 
 namespace ds {
@@ -15,7 +14,7 @@ namespace ds {
 template <class V>
 class Dict {
  private:
-  BTree<unsigned, V> tree_;
+  robin_hood::unordered_map<std::string, V> table_;
 
   Log<V> log_;
 
@@ -38,7 +37,7 @@ class Dict {
           count = 0;
           DSet<V> d;
           strcpy(d.c, t);
-          tree_.insert(alg::hash(temp), d.v);
+          table_[temp] = d.v;
           temp.clear();
           i -= 1;
           continue;
@@ -58,7 +57,7 @@ class Dict {
   }
 
  public:
-  Dict(bool build = false) : tree_(100), count_(0) {
+  Dict(bool build = false) : count_(0) {
     if (build) {
       rebuild();
     }
@@ -68,15 +67,32 @@ class Dict {
     if (count_ > std::numeric_limits<unsigned>::max()) {
       throw DictOverflow();
     } else {
-      tree_.insert(alg::hash(key), value);
+      table_[key] = value;
       log_.commit(key, value);
       count_++;
     }
   }
 
-  void clearWAL() { remove("wal.bin"); }
+  V find(std::string key){
+    if(!table_.contains(key)){
+      throw KeyNotFound();
+    }
+    else{
+      return table_[key];
+    }
+  }
 
-  V operator[](std::string key) { return tree_.find(alg::hash(key)); }
+  void remove(std::string key){
+    if(!table_.contains(key)){
+      throw KeyNotFound();
+    }
+    else{
+      table_.erase(key);
+    }
+  }
+
+  void clearWAL() {remove("wal.bin"); }
+
 };
 
 };  // namespace ds
