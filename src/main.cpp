@@ -3,11 +3,11 @@
 #include <string>
 
 #include "binary_conv.hpp"
-#include "btree.hpp"
+#include "hashtable.hpp"
 #include "dict.hpp"
-#include "hash.h"
 #include "log.hpp"
 
 int main(int argc, char* argv[]){
-  ds::Dict<double> d(true);
+  ds::Dict<unsigned> t;
+  
 }
