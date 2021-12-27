@@ -3,6 +3,7 @@
 #include <string.h>
 
 #include <limits>
+#include <stdio.h>
 #include <string>
 
 #include "btree.hpp"
@@ -71,6 +72,10 @@ class Dict {
       log_.commit(key, value);
       count_++;
     }
+  }
+
+  void clearWAL(){
+    remove("wal.bin");
   }
 
   V operator[](std::string key) { return tree_.find(alg::hash(key)); }
