@@ -1,9 +1,9 @@
 #include "db_shell.h"
 
 #include <iostream>
-#include <tuple>
 #include <sstream>
 #include <string>
+#include <tuple>
 #include <vector>
 
 void DBShell::printWelcome() {

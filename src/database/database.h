@@ -1,18 +1,14 @@
 #pragma once
 
-#include <tuple>
 #include <map>
+#include <tuple>
 
 #include "dict.hpp"
 
-class Database{
-    private:
+class Database {
+ private:
+  std::map<std::string, unsigned> assign_;
+  std::tuple<ds::Dict<int>> dictionaries_;
 
-        std::map<std::string, unsigned> assign_;
-        std::tuple<ds::Dict<int>> dictionaries_;
-
-    public:
-
-
-
+ public:
 };
