@@ -6,6 +6,10 @@
 
 #include "database.h"
 
+#define help "\
+\
+"
+
 class DBShell {
  private:
   Database db_;

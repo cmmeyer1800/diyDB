@@ -1,4 +1,5 @@
 #include "db_shell.h"
+#include "database.h"
 
 #include <iostream>
 #include <sstream>
@@ -39,6 +40,16 @@ int DBShell::parseInput(std::string input) {
     if (words.size() != 3) {
       return false;
     } else {
+      std::string t = words[1];
+      if(t == "int"){
+        db_.create<int>(words[2]);
+      }
+      else if(t == "unsigned"){
+        //db_.create<unsigned>(words[2]);
+      }
+      else{
+        return false;
+      }
     }
   } else {
     return false;
