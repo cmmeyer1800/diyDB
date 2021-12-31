@@ -36,21 +36,46 @@ int DBShell::parseInput(std::string input) {
     exit(0);
   } else if (first == "clear") {
     std::cout << "\033c";
+
+
   } else if (first == "create") {
-    if (words.size() != 3) {
+    if (words.size() != 2) {
       return false;
     } else {
-      std::string t = words[1];
-      if(t == "int"){
-        db_.create<int>(words[2]);
-      }
-      else if(t == "unsigned"){
-        //db_.create<unsigned>(words[2]);
+      db_.create(words[1]);
+    }
+  }
+
+
+  else if(first == "at"){
+    if(words.size() != 3){
+      std::cout << attr.red << attr.bold << "Error: Command Requires 3 Arguments" << attr.none << std::endl;
+    }
+    else{
+      if(!db_.check(words[1])){
+        std::cout << attr.red << attr.bold << "Error: Dict Not Found In Database" << attr.none << std::endl;
       }
       else{
-        return false;
+        std::cout << db_.get(words[1]).find(words[2]) << std::endl;
       }
     }
+  }
+
+
+  else if(first == "set"){
+    if(words.size() != 4){
+      std::cout << attr.red << attr.bold << "Error: Command Requires 4 Arguments" << attr.none << std::endl;
+    }
+    else{
+      if(!db_.check(words[1])){
+        std::cout << attr.red << attr.bold << "Error: Dict Not Found In Database" << attr.none << std::endl;
+      }
+      else{
+        db_.get(words[1]).insert(words[2], words[3]);
+      }
+    }
+
+  
   } else {
     return false;
   }

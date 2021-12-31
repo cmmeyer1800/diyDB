@@ -1,11 +1,9 @@
 #include <iostream>
 #include <string>
 
-#include "binary_conv.hpp"
 #include "db_shell.h"
 #include "hashtable.hpp"
-#include "dict.hpp"
-#include "log.hpp"
+#include "dict.h"
 
 int main(int argc, char* argv[]){
   bool running = true;

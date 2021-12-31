@@ -1,9 +1,8 @@
 #pragma once
 
-#include <dict.hpp>
+#include <dict.h>
 #include <map>
 #include <string>
-
 #include "database.h"
 
 #define help "\
