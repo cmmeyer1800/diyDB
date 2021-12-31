@@ -4,9 +4,16 @@
 #include <map>
 #include <dict.hpp>
 
+#include "database.h"
+
 class DBShell {
 
+ private:
+
+  Database db_;  
+
  public:
+
   struct {
     const std::string none = "\e[0m";
     const std::string bold = "\e[1m";
