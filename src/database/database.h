@@ -12,14 +12,13 @@ class Database {
   unsigned size_;
 
  public:
+  Database() : size_(0) {}
 
- Database() : size_(0){}
-
-    template<class T>
-    void create(std::string name){
-        std::tuple<ds::Dict<T>> dict;
-        dictionaries_ = std::tuple_cat(dictionaries_, dict);
-        assign_[name] = size_;
-        size_++;
-    }
+  template <class T>
+  void create(std::string name) {
+    std::tuple<ds::Dict<T>> dict;
+    dictionaries_ = std::tuple_cat(dictionaries_, dict);
+    assign_[name] = size_;
+    size_++;
+  }
 };

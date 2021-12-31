@@ -6,7 +6,8 @@
 
 #include "database.h"
 
-#define help "\
+#define help \
+  "\
 \
 "
 

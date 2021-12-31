@@ -1,11 +1,12 @@
 #include "db_shell.h"
-#include "database.h"
 
 #include <iostream>
 #include <sstream>
 #include <string>
 #include <tuple>
 #include <vector>
+
+#include "database.h"
 
 void DBShell::printWelcome() {
   std::cout << attr.bold << "Welcome to the DiyDB shell\n"
@@ -41,13 +42,11 @@ int DBShell::parseInput(std::string input) {
       return false;
     } else {
       std::string t = words[1];
-      if(t == "int"){
+      if (t == "int") {
         db_.create<int>(words[2]);
-      }
-      else if(t == "unsigned"){
-        //db_.create<unsigned>(words[2]);
-      }
-      else{
+      } else if (t == "unsigned") {
+        // db_.create<unsigned>(words[2]);
+      } else {
         return false;
       }
     }
