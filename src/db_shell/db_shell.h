@@ -1,8 +1,11 @@
 #pragma once
 
 #include <string>
+#include <map>
+#include <dict.hpp>
 
 class DBShell {
+
  public:
   struct {
     const std::string none = "\e[0m";
