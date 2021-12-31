@@ -1,8 +1,8 @@
 #pragma once
 
-#include <string>
-#include <map>
 #include <dict.hpp>
+#include <map>
+#include <string>
 
 #include "database.h"
 
