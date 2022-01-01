@@ -20,15 +20,15 @@ jobs:
           make test
           ./test
 
-  Ubuntu_Test:
+  # Ubuntu_Test:
 
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v2
 
-      - name: Test with catch2
-        shell: bash
-        run: |
-          make clean
-          make test
-          ./test
+  #     - name: Test with catch2
+  #       shell: bash
+  #       run: |
+  #         make clean
+  #         make test
+  #         ./test
