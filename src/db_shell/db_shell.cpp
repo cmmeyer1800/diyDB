@@ -38,7 +38,6 @@ int DBShell::parseInput(std::string input) {
   } else if (first == "clear") {
     std::cout << "\033c";
 
-
   } else if (first == "create") {
     if (words.size() != 2) {
       return false;
@@ -47,51 +46,53 @@ int DBShell::parseInput(std::string input) {
     }
   }
 
-
-  else if(first == "at"){
-    if(words.size() != 3){
-      std::cout << attr.red << attr.bold << "Error: Command Requires 3 Arguments" << attr.none << std::endl;
-    }
-    else{
-      if(!db_.check(words[1])){
-        std::cout << attr.red << attr.bold << "Error: Dict Not Found In Database" << attr.none << std::endl;
-      }
-      else{
+  else if (first == "at") {
+    if (words.size() != 3) {
+      std::cout << attr.red << attr.bold
+                << "Error: Command Requires 3 Arguments" << attr.none
+                << std::endl;
+    } else {
+      if (!db_.check(words[1])) {
+        std::cout << attr.red << attr.bold
+                  << "Error: Dict Not Found In Database" << attr.none
+                  << std::endl;
+      } else {
         std::cout << db_.get(words[1]).find(words[2]) << std::endl;
       }
     }
   }
 
-
-  else if(first == "set"){
-    if(words.size() != 4){
-      std::cout << attr.red << attr.bold << "Error: Command Requires 4 Arguments" << attr.none << std::endl;
-    }
-    else{
-      if(!db_.check(words[1])){
-        std::cout << attr.red << attr.bold << "Error: Dict Not Found In Database" << attr.none << std::endl;
-      }
-      else{
+  else if (first == "set") {
+    if (words.size() != 4) {
+      std::cout << attr.red << attr.bold
+                << "Error: Command Requires 4 Arguments" << attr.none
+                << std::endl;
+    } else {
+      if (!db_.check(words[1])) {
+        std::cout << attr.red << attr.bold
+                  << "Error: Dict Not Found In Database" << attr.none
+                  << std::endl;
+      } else {
         db_.get(words[1]).insert(words[2], words[3]);
       }
     }
   }
 
-
-  else if(first == "DELETE"){
-    if(words.size() != 2){
-      std::cout << attr.red << attr.bold << "Error: Command Requires 4 Arguments" << attr.none << std::endl;
-    }
-    else{
-      if(!db_.check(words[1])){
-        std::cout << attr.red << attr.bold << "Error: Dict Not Found In Database" << attr.none << std::endl;
-      }
-      else{
+  else if (first == "DELETE") {
+    if (words.size() != 2) {
+      std::cout << attr.red << attr.bold
+                << "Error: Command Requires 4 Arguments" << attr.none
+                << std::endl;
+    } else {
+      if (!db_.check(words[1])) {
+        std::cout << attr.red << attr.bold
+                  << "Error: Dict Not Found In Database" << attr.none
+                  << std::endl;
+      } else {
         db_.get(words[1]).clearWAL();
       }
     }
 
-  
   } else {
     return false;
   }

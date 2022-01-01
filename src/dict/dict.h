@@ -22,7 +22,6 @@ class Dict {
   void rebuild();
 
  public:
-
   Dict(std::string name, bool build = false) : name_(name), log_(name) {
     if (build) {
       rebuild();

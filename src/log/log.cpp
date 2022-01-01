@@ -1,9 +1,10 @@
+#include "log.h"
+
 #include <cstddef>
 #include <fstream>
 #include <iostream>
 #include <string>
 
-#include "log.h"
 #include "errors.h"
 
 void Log::write(std::ofstream& ofs, std::string str) {
