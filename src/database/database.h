@@ -1,19 +1,19 @@
 #pragma once
 
-#include <map>
-#include <tuple>
+#include "dict.h"
 
-#include "dict.hpp"
+#include <map>
+#include <vector>
 
 class Database {
  private:
-  std::map<std::string, unsigned> assign_;
-  std::tuple<> dictionaries_;
-  unsigned size_;
+   std::vector<ds::Dict> dicts_;
+   std::map<std::string, unsigned> locs_;
 
  public:
   Database() : size_(0) {}
 
+<<<<<<< HEAD
   template <class T>
   void create(std::string name) {
     std::tuple<ds::Dict<T>> dict;
@@ -21,4 +21,16 @@ class Database {
     assign_[name] = size_;
     size_++;
   }
+=======
+  Database();
+
+   void create(std::string name);
+
+   void recreate(std::string name);
+
+   ds::Dict & get(std::string name);
+
+  bool check(std::string name);
+    
+>>>>>>> strings
 };
