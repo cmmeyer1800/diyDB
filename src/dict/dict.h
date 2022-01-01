@@ -34,7 +34,7 @@ class Dict {
 
   void remove(std::string key);
 
-  std::string getName(){return name_;}
+  std::string getName() { return name_; }
 
   void clearWAL();
 };

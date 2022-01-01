@@ -101,7 +101,6 @@ int DBShell::parseInput(std::string input) {
     }
   }
 
-
   else if (first == "LIST") {
     if (words.size() != 1) {
       std::cout << attr.red << attr.bold
@@ -109,11 +108,10 @@ int DBShell::parseInput(std::string input) {
                 << std::endl;
     } else {
       std::cout << "Current Dictionaries:" << std::endl;
-      for(auto i : db_.getDicts()){
+      for (auto i : db_.getDicts()) {
         std::cout << "\t" << i << std::endl;
       }
     }
-
 
   } else {
     return false;
