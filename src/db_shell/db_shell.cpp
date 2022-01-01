@@ -109,8 +109,9 @@ int DBShell::parseInput(std::string input) {
     } else {
       std::cout << "Current Dictionaries:" << std::endl;
       std::vector<std::string> dicts = db_.getDicts();
-      if(dicts.size() < 1){
-        std::cout << "\t" << "None" << std::endl;
+      if (dicts.size() < 1) {
+        std::cout << "\t"
+                  << "None" << std::endl;
       }
       for (auto i : dicts) {
         std::cout << "\t" << i << std::endl;
