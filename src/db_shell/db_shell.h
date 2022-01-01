@@ -7,9 +7,21 @@
 
 #include "database.h"
 
-#define help \
-  "\
-\
+#define HELP_MESSAGE "\
+Welcome to diyDB Shell Help\n\
+Commands for Database Interaction\n\
+quit:\n\
+  \tUsage: quit or q or exit\n\
+  \tAction: terminates shell execution\n\
+CREATE:\n\
+  \tUsage: CREATE DictionaryName\n\
+  \tAction: creates a new dictionary with name DictionaryName that can be used to store key value pairs\n\
+SET:\n\
+  \tUsage: SET DictionaryName Key Value\n\
+  \tAction: sets the Key to Value for database DictionaryName\n\
+GET:\n\
+  \tUsage: Get DictionaryName Key\n\
+  \tAction: outputs the value at Key in DictionaryName\n\
 "
 
 class DBShell {

@@ -9,7 +9,7 @@
 #include "database.h"
 
 void DBShell::printWelcome() {
-  std::cout << attr.bold << "Welcome to the DiyDB shell\n"
+  std::cout << attr.bold << "Welcome to the DiyDB Shell\n"
             << attr.none << "Enter help for usage details" << std::endl;
 }
 
@@ -35,10 +35,15 @@ int DBShell::parseInput(std::string input) {
 
   if (first == "q" || first == "quit" || first == "exit") {
     exit(0);
-  } else if (first == "clear") {
+  }
+  
+  
+  else if (first == "clear") {
     std::cout << "\033c";
+  }
 
-  } else if (first == "create") {
+ 
+  else if (first == "CREATE") {
     if (words.size() != 2) {
       return false;
     } else {
@@ -46,7 +51,13 @@ int DBShell::parseInput(std::string input) {
     }
   }
 
-  else if (first == "at") {
+
+  else if(first == "help"){
+    std::cout << HELP_MESSAGE << std::flush;
+  }
+
+
+  else if (first == "GET") {
     if (words.size() != 3) {
       std::cout << attr.red << attr.bold
                 << "Error: Command Requires 3 Arguments" << attr.none
@@ -62,7 +73,8 @@ int DBShell::parseInput(std::string input) {
     }
   }
 
-  else if (first == "set") {
+
+  else if (first == "SET") {
     if (words.size() != 4) {
       std::cout << attr.red << attr.bold
                 << "Error: Command Requires 4 Arguments" << attr.none
@@ -77,6 +89,7 @@ int DBShell::parseInput(std::string input) {
       }
     }
   }
+
 
   else if (first == "DELETE") {
     if (words.size() != 2) {
