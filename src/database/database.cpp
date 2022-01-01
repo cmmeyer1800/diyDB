@@ -6,9 +6,9 @@
 
 #include "dict.h"
 
-// #ifndef FILEPATH
-// #define FILEPATH "."
-// #endif
+#ifndef FILEPATH
+#define FILEPATH "."
+#endif
 
 #ifdef __linux__
 namespace fs = std::filesystem;

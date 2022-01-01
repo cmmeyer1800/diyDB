@@ -7,9 +7,9 @@
 
 #include "errors.h"
 
-// #ifndef FILEPATH
-// #define FILEPATH "."
-// #endif
+#ifndef FILEPATH
+#define FILEPATH "."
+#endif
 
 void Log::write(std::ofstream& ofs, std::string str) {
   ofs << str;
