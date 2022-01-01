@@ -36,13 +36,11 @@ int DBShell::parseInput(std::string input) {
   if (first == "q" || first == "quit" || first == "exit") {
     exit(0);
   }
-  
-  
+
   else if (first == "clear") {
     std::cout << "\033c";
   }
 
- 
   else if (first == "CREATE") {
     if (words.size() != 2) {
       return false;
@@ -51,11 +49,9 @@ int DBShell::parseInput(std::string input) {
     }
   }
 
-
-  else if(first == "help"){
+  else if (first == "help") {
     std::cout << HELP_MESSAGE << std::flush;
   }
-
 
   else if (first == "GET") {
     if (words.size() != 3) {
@@ -73,7 +69,6 @@ int DBShell::parseInput(std::string input) {
     }
   }
 
-
   else if (first == "SET") {
     if (words.size() != 4) {
       std::cout << attr.red << attr.bold
@@ -89,7 +84,6 @@ int DBShell::parseInput(std::string input) {
       }
     }
   }
-
 
   else if (first == "DELETE") {
     if (words.size() != 2) {
