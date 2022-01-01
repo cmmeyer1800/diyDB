@@ -6,10 +6,14 @@
 
 #include "dict.h"
 
-namespace fs = std::__fs::filesystem;
+#if defined(__i386__) || defined(__x86_64__)
+  namespace fs = std::filesystem;
+#elif defined(__aarch64__)
+  namespace fs = std::__fs::filesystem;
+#endif
 
 Database::Database() {
-  std::string path = ".";
+  std::string path = "/Users/Collin/bin/diyDB/";
   for (const auto& entry : fs::directory_iterator(path)) {
     std::string p = entry.path().string();
     if (p.length() < 4) {
