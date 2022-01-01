@@ -11,7 +11,6 @@ class Database {
   std::map<std::string, unsigned> locs_;
 
  public:
-
   Database();
 
   void create(std::string name);
@@ -21,5 +20,4 @@ class Database {
   ds::Dict& get(std::string name);
 
   bool check(std::string name);
-    
 };
