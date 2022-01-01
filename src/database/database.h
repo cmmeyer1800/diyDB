@@ -11,17 +11,7 @@ class Database {
   std::map<std::string, unsigned> locs_;
 
  public:
-  Database() : size_(0) {}
 
-<<<<<<< HEAD
-  template <class T>
-  void create(std::string name) {
-    std::tuple<ds::Dict<T>> dict;
-    dictionaries_ = std::tuple_cat(dictionaries_, dict);
-    assign_[name] = size_;
-    size_++;
-  }
-=======
   Database();
 
   void create(std::string name);
@@ -32,5 +22,4 @@ class Database {
 
   bool check(std::string name);
     
->>>>>>> strings
 };
