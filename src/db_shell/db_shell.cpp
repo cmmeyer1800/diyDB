@@ -74,6 +74,21 @@ int DBShell::parseInput(std::string input) {
         db_.get(words[1]).insert(words[2], words[3]);
       }
     }
+  }
+
+
+  else if(first == "DELETE"){
+    if(words.size() != 2){
+      std::cout << attr.red << attr.bold << "Error: Command Requires 4 Arguments" << attr.none << std::endl;
+    }
+    else{
+      if(!db_.check(words[1])){
+        std::cout << attr.red << attr.bold << "Error: Dict Not Found In Database" << attr.none << std::endl;
+      }
+      else{
+        db_.get(words[1]).clearWAL();
+      }
+    }
 
   
   } else {

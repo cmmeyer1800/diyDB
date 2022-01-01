@@ -53,4 +53,4 @@ void ds::Dict::remove(std::string key) {
   }
 }
 
-void ds::Dict::clearWAL() { remove("wal.bin"); }
+void ds::Dict::clearWAL() { ::remove(name_.append(".wal").c_str()); }
