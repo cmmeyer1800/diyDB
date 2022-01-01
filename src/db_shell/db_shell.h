@@ -7,7 +7,8 @@
 
 #include "database.h"
 
-#define HELP_MESSAGE "\
+#define HELP_MESSAGE \
+  "\
 Welcome to diyDB Shell Help\n\
 Commands for Database Interaction\n\
 quit:\n\
