@@ -6,14 +6,18 @@
 
 #include "dict.h"
 
-#ifdef __linux
+// #ifndef FILEPATH
+// #define FILEPATH "."
+// #endif
+
+#ifdef __linux__
 namespace fs = std::filesystem;
 #elif __APPLE__
 namespace fs = std::__fs::filesystem;
 #endif
 
 Database::Database() {
-  std::string path = "/Users/Collin/bin/diyDB/";
+  std::string path = FILEPATH;
   for (const auto& entry : fs::directory_iterator(path)) {
     std::string p = entry.path().string();
     if (p.length() < 4) {

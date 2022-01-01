@@ -7,7 +7,9 @@
 
 #include "errors.h"
 
-#define PATH "~/bin/diyDB/"
+// #ifndef FILEPATH
+// #define FILEPATH "."
+// #endif
 
 void Log::write(std::ofstream& ofs, std::string str) {
   ofs << str;
@@ -16,7 +18,7 @@ void Log::write(std::ofstream& ofs, std::string str) {
 }
 
 void Log::commit(std::string key, std::string value) {
-  std::ofstream file(std::string(PATH).append(filename_),
+  std::ofstream file(std::string(FILEPATH).append(filename_),
                      std::ios::binary | std::ios::app);
   if (!file) {
     throw FileNotOpen();
@@ -28,7 +30,7 @@ void Log::commit(std::string key, std::string value) {
 }
 
 char* Log::pull() {
-  std::ifstream file(std::string(PATH).append(filename_), std::ios::binary);
+  std::ifstream file(std::string(FILEPATH).append(filename_), std::ios::binary);
   if (!file) {
     throw FileNotOpen();
     return NULL;

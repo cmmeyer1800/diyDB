@@ -32,6 +32,10 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 # These files will have .d instead of .o as the output.
 CPPFLAGS := $(INC_FLAGS) -g -MMD -MP -std=c++11 -O0
 
+FILEPATH := $(shell ./dirtool.sh)
+
+FILEPATHQUOTED := $(patsubst %,"%",$(FILEPATH))
+
 $(TARGET_EXEC): $(OBJS) $(MAIN_OBJ)
 	$(CXX) $(OBJS) $(MAIN_OBJ) -o $@ $(LDFLAGS)
 
@@ -41,7 +45,7 @@ $(TEST_EXEC): $(OBJS) $(TEST_OBJ)
 # Build step for C++ source
 $(BUILD_DIR)/%.cpp.o: %.cpp
 	mkdir -p $(dir $@)
-	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c $< -o $@
+	$(CXX) $(CPPFLAGS) -D'FILEPATH=$(FILEPATHQUOTED)' $(CXXFLAGS) -c $< -o $@
 
 
 .PHONY: clean
