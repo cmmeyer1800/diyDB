@@ -7,9 +7,9 @@
 #include "dict.h"
 
 #if defined(__i386__) || defined(__x86_64__)
-  namespace fs = std::filesystem;
+namespace fs = std::filesystem;
 #elif defined(__aarch64__)
-  namespace fs = std::__fs::filesystem;
+namespace fs = std::__fs::filesystem;
 #endif
 
 Database::Database() {
