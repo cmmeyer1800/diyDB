@@ -6,9 +6,9 @@
 
 #include "dict.h"
 
-#if defined(__i386__) || defined(__x86_64__)
+#ifdef __linux
   namespace fs = std::filesystem;
-#elif defined(__aarch64__)
+#elif __APPLE__
   namespace fs = std::__fs::filesystem;
 #endif
 
