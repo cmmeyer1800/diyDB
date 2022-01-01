@@ -21,5 +21,4 @@ int main(int argc, char* argv[]){
       std::cout << shell.attr.red << shell.attr.bold << "Error: Command Could Not Be Understood" << shell.attr.none << std::endl;
     }
   }
-  return 0;
 }

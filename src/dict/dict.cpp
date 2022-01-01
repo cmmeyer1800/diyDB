@@ -1,8 +1,8 @@
 #include <stdio.h>
-#include <string.h>
 
 #include <limits>
 #include <string>
+#include <iostream>
 
 #include "hashtable.hpp"
 #include "errors.h"
@@ -29,7 +29,7 @@ void ds::Dict::rebuild() {
       buffer.clear();
     }
     else{
-      buffer.append(memory[i], 1);
+      buffer.append(1, memory[i]);
     }
   }
 

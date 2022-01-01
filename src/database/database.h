@@ -12,7 +12,11 @@ class Database {
 
  public:
 
+  Database();
+
    void create(std::string name);
+
+   void recreate(std::string name);
 
    ds::Dict & get(std::string name);
 
