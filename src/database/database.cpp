@@ -32,6 +32,14 @@ void Database::recreate(std::string name) {
   dicts_.push_back(ds::Dict(name.substr(0, name.length() - 4), true));
 }
 
+std::vector<std::string> Database::getDicts(){
+  std::vector<std::string> ret;
+  for(auto & i : dicts_){
+    ret.push_back(i.getName());
+  }
+  return ret;
+}
+
 ds::Dict& Database::get(std::string name) { return dicts_.at(locs_[name] - 1); }
 
 bool Database::check(std::string name) { return locs_[name]; }

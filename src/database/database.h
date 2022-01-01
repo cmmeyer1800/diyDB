@@ -19,5 +19,7 @@ class Database {
 
   ds::Dict& get(std::string name);
 
+  std::vector<std::string> getDicts();
+
   bool check(std::string name);
 };

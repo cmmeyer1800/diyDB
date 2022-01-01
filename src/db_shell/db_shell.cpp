@@ -99,6 +99,21 @@ int DBShell::parseInput(std::string input) {
         db_.get(words[1]).clearWAL();
       }
     }
+  }
+
+
+  else if (first == "LIST") {
+    if (words.size() != 1) {
+      std::cout << attr.red << attr.bold
+                << "Error: Command Requires 4 Arguments" << attr.none
+                << std::endl;
+    } else {
+      std::cout << "Current Dictionaries:" << std::endl;
+      for(auto i : db_.getDicts()){
+        std::cout << "\t" << i << std::endl;
+      }
+    }
+
 
   } else {
     return false;
