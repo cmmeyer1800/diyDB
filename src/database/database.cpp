@@ -7,9 +7,9 @@
 #include "dict.h"
 
 #ifdef __linux
-  namespace fs = std::filesystem;
+namespace fs = std::filesystem;
 #elif __APPLE__
-  namespace fs = std::__fs::filesystem;
+namespace fs = std::__fs::filesystem;
 #endif
 
 Database::Database() {
