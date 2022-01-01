@@ -58,7 +58,14 @@ endif
 
 .PHONY: install
 install:
+	chmod +x install.sh
 	./install.sh
+
+.PHONY: uninstall
+uninstall:
+	chmod +x uninstall.sh
+	./uninstall.sh
+
 # Include the .d makefiles. The - at the front suppresses the errors of missing
 # Makefiles. Initially, all the .d files will be missing, and we don't want those
 # errors to show up.
