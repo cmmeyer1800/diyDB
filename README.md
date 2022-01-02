@@ -1,7 +1,7 @@
 # diyDB
 
 [![License MIT](https://img.shields.io/badge/License-MIT-blue.svg)](http://opensource.org/licenses/MIT)
-[![Platform](https://img.shields.io/badge/Platform-MacOS&Ubuntu-lightgrey.svg)](https://www.apple.com/macos/monterey/)
+[![Platform Support](https://img.shields.io/badge/Platform-MacOS%20&%20Ubuntu-lightgrey.svg)]()
 [![Unit Tests](https://github.com/cmmeyer1800/diyDB/actions/workflows/test.yml/badge.svg)](https://github.com/cmmeyer1800/diyDB/actions/workflows/test.yml)
 
 Homemade DB written in c++
