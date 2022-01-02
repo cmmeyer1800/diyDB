@@ -2,12 +2,17 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <iostream>
 
 #include <limits>
 #include <string>
 
 #include "hashtable.hpp"
 #include "log.h"
+
+#ifndef FILEPATH
+#define FILEPATH "."
+#endif
 
 namespace ds {
 
@@ -19,13 +24,18 @@ class Dict {
 
   std::string name_;
 
+  std::string filename_;
+
   void rebuild();
 
  public:
-  Dict(std::string name, bool build = false) : name_(name), log_(name) {
-    if (build) {
-      rebuild();
-    }
+
+  Dict(std::string name) : name_(name), log_(std::string(FILEPATH).append(name).append(".wal")){
+    filename_ = std::string(FILEPATH).append(name).append(".wal");
+  }
+  
+  Dict(std::string name, std::string filename) : name_(name), log_(filename), filename_(filename){
+    rebuild();
   }
 
   void insert(std::string key, std::string value);

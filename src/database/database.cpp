@@ -17,15 +17,14 @@ namespace fs = std::__fs::filesystem;
 #endif
 
 Database::Database() {
-  std::string path = FILEPATH;
-  for (const auto& entry : fs::directory_iterator(path)) {
+  for (const auto& entry : fs::directory_iterator(FILEPATH)) {
     std::string p = entry.path().string();
     if (p.length() < 4) {
       continue;
     } else if (p.substr(p.length() - 4, 4) != ".wal") {
       continue;
     } else {
-      recreate(p.substr(2, p.length() - 2));
+      recreate(p);
     }
   }
 }
@@ -35,9 +34,15 @@ void Database::create(std::string name) {
   dicts_.push_back(ds::Dict(name));
 }
 
-void Database::recreate(std::string name) {
-  locs_[name.substr(0, name.length() - 4)] = dicts_.size() + 1;
-  dicts_.push_back(ds::Dict(name.substr(0, name.length() - 4), true));
+void Database::recreate(std::string filename) {
+  std::string formatted;
+  auto idx = filename.find_last_of('/');
+  if(idx != std::string::npos){
+    formatted = filename.substr(idx+1, filename.size()-idx-1);
+  }
+  formatted = formatted.substr(0, formatted.length() - 4);
+  locs_[formatted] = dicts_.size() + 1;
+  dicts_.push_back(ds::Dict(formatted, filename));
 }
 
 std::vector<std::string> Database::getDicts() {
