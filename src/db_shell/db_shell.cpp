@@ -34,19 +34,18 @@ int DBShell::parseInput(std::string input) {
   std::string first = words[0];
 
   if (first == "q" || first == "quit" || first == "exit") {
-    std::cout << attr.bold << "Are You Sure You Want to Exit (Y/n): " << attr.none << std::flush;
+    std::cout << attr.bold
+              << "Are You Sure You Want to Exit (Y/n): " << attr.none
+              << std::flush;
     std::string input;
     std::getline(std::cin, input);
-    if(input.length() != 1){
+    if (input.length() != 1) {
       return false;
-    }
-    else if(input == "Y" || input == "y"){
+    } else if (input == "Y" || input == "y") {
       exit(0);
-    }
-    else if(input == "N" || input == "n"){
+    } else if (input == "N" || input == "n") {
       return true;
-    }
-    else{
+    } else {
       return false;
     }
   }
@@ -58,15 +57,14 @@ int DBShell::parseInput(std::string input) {
   else if (first == "CREATE") {
     if (words.size() != 2) {
       std::cout << attr.red << attr.bold
-        << "Error: Command Requires 2 Arguments" << attr.none
-        << std::endl;
+                << "Error: Command Requires 2 Arguments" << attr.none
+                << std::endl;
     } else {
-      if(db_.check(words[1])){
+      if (db_.check(words[1])) {
         std::cout << attr.red << attr.bold
-          << "Error: Dict Already Exists In the Database" << attr.none
-          << std::endl;
-      }
-      else{
+                  << "Error: Dict Already Exists In the Database" << attr.none
+                  << std::endl;
+      } else {
         db_.create(words[1]);
       }
     }
