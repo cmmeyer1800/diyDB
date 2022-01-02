@@ -13,7 +13,7 @@ class Log {
   void write(std::ofstream& ofs, std::string val);
 
  public:
-  Log(std::string filename) : filename_(filename), length_(0){}
+  Log(std::string filename) : filename_(filename), length_(0) {}
 
   void commit(std::string key, std::string value);
 

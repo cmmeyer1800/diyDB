@@ -37,8 +37,8 @@ void Database::create(std::string name) {
 void Database::recreate(std::string filename) {
   std::string formatted;
   auto idx = filename.find_last_of('/');
-  if(idx != std::string::npos){
-    formatted = filename.substr(idx+1, filename.size()-idx-1);
+  if (idx != std::string::npos) {
+    formatted = filename.substr(idx + 1, filename.size() - idx - 1);
   }
   formatted = formatted.substr(0, formatted.length() - 4);
   locs_[formatted] = dicts_.size() + 1;

@@ -2,8 +2,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <iostream>
 
+#include <iostream>
 #include <limits>
 #include <string>
 
@@ -29,12 +29,13 @@ class Dict {
   void rebuild();
 
  public:
-
-  Dict(std::string name) : name_(name), log_(std::string(FILEPATH).append(name).append(".wal")){
+  Dict(std::string name)
+      : name_(name), log_(std::string(FILEPATH).append(name).append(".wal")) {
     filename_ = std::string(FILEPATH).append(name).append(".wal");
   }
-  
-  Dict(std::string name, std::string filename) : name_(name), log_(filename), filename_(filename){
+
+  Dict(std::string name, std::string filename)
+      : name_(name), log_(filename), filename_(filename) {
     rebuild();
   }
 

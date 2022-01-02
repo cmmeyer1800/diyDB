@@ -18,8 +18,7 @@ void Log::write(std::ofstream& ofs, std::string str) {
 }
 
 void Log::commit(std::string key, std::string value) {
-  std::ofstream file(filename_,
-                     std::ios::binary | std::ios::app);
+  std::ofstream file(filename_, std::ios::binary | std::ios::app);
   if (!file) {
     throw FileNotOpen();
   } else {
