@@ -21,8 +21,11 @@ SET:\n\
   \tUsage: SET DictionaryName Key Value\n\
   \tAction: sets the Key to Value for database DictionaryName\n\
 GET:\n\
-  \tUsage: Get DictionaryName Key\n\
+  \tUsage: GET DictionaryName Key\n\
   \tAction: outputs the value at Key in DictionaryName\n\
+LIST:\n\
+  \tUsage: LIST\n\
+  \tAction: outputs the names of all the dictionaries in the database\n\
 "
 
 class DBShell {
