@@ -117,7 +117,6 @@ int DBShell::parseInput(std::string input) {
                   << "Error: Dict Not Found In Database" << attr.none
                   << std::endl;
       } else {
-        
         db_.remove(words[1]);
       }
     }
