@@ -14,6 +14,9 @@ Commands for Database Interaction\n\
 quit:\n\
   \tUsage: quit or q or exit\n\
   \tAction: terminates shell execution\n\
+clear:\n\
+  \tUsage: clear\n\
+  \tAction: clears the terminal while in shell\n\
 CREATE:\n\
   \tUsage: CREATE DictionaryName\n\
   \tAction: creates a new dictionary with name DictionaryName that can be used to store key value pairs\n\

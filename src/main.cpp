@@ -52,6 +52,7 @@ int main(int argc, char* argv[]){
       }
       auto end = std::chrono::high_resolution_clock::now();
       auto duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
+      db.get("SpeedTest").clearWAL();
       std::cout << duration.count()/upper;
     }
     else{

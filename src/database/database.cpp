@@ -53,6 +53,18 @@ std::vector<std::string> Database::getDicts() {
   return ret;
 }
 
+void Database::remove(std::string name){
+  get(name).clearWAL();
+  size_t idx = locs_[name];
+  locs_.erase(name);
+  for(auto i : locs_){
+    if(i.second > idx){
+      i.second -= 1;
+    }
+  }
+  dicts_.erase(dicts_.begin()+idx-1);
+}
+
 ds::Dict& Database::get(std::string name) { return dicts_.at(locs_[name] - 1); }
 
 bool Database::check(std::string name) { return locs_[name]; }

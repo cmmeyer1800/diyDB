@@ -50,4 +50,4 @@ void ds::Dict::remove(std::string key) {
   }
 }
 
-void ds::Dict::clearWAL() { ::remove(name_.append(".wal").c_str()); }
+void ds::Dict::clearWAL() { ::remove(filename_.c_str()); }

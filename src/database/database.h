@@ -21,5 +21,7 @@ class Database {
 
   std::vector<std::string> getDicts();
 
+  void remove(std::string name);
+
   bool check(std::string name);
 };
