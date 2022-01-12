@@ -5,6 +5,8 @@ import subprocess
 
 def main() -> None:
 
+    print("")
+
     print("<Preparing For commit>")
 
     print("\t<Running Automatic Code Formatter Over Repo>")
@@ -24,7 +26,8 @@ def main() -> None:
                     subprocess.run(["clang-format", "-style=google", "-i", file])
 
     print("\t</Complete>")
+    
+    print("</committing>\n")
 
-    print("</committing>")
 
 main()
