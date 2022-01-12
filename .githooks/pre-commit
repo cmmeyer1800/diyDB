@@ -1,9 +1,14 @@
-#!/opt/homebrew/opt/python@3.9/bin/ python3.9
+#!/opt/homebrew/opt/python@3.9/bin/python3.9
 
 import os
 import subprocess
 
 def main() -> None:
+
+    print("Preparing For commit")
+
+    print("\t<Running Automatic Code Formatter Over Repo>")
+
     baseDir = os.getcwd()
     os.chdir(os.path.join(baseDir, "src"))
     srcDir = os.getcwd()
@@ -17,5 +22,9 @@ def main() -> None:
                     continue
                 else:
                     subprocess.run(["clang-format", "-style=google", "-i", file])
+
+    print("\t</Complete>")
+
+    print("</committing>")
 
 main()
