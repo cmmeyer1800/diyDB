@@ -5,7 +5,7 @@ import subprocess
 
 def main() -> None:
 
-    print("Preparing For commit")
+    print("<Preparing For commit>")
 
     print("\t<Running Automatic Code Formatter Over Repo>")
 
