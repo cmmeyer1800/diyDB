@@ -24,6 +24,7 @@ def main() -> None:
                     continue
                 else:
                     subprocess.run(["clang-format", "-style=google", "-i", file])
+                    print(file)
 
     print("\t</Complete>")
     
