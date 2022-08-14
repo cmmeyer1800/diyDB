@@ -24,10 +24,14 @@ def main() -> None:
                     continue
                 else:
                     subprocess.run(["clang-format", "-style=google", "-i", file])
-                    print(file)
+                    print(f"\t\t{file}")
 
-    print("\t</Complete>")
+    print("\t</Running Automatic Code Formatter Over Repo>")
     
+    print("</Preparing For commit>")
+
+    print("<committing>")
+    print("\tgit commit")
     print("</committing>\n")
 
 
