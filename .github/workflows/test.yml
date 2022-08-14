@@ -2,26 +2,12 @@ name: Unit Tests
 
 on:
   push:
-    branches: [ main ]
+    branches: [ dev ]
   pull_request:
-    branches: [ main ]
+    branches: [ dev ]
 
 jobs:
-  MacOS_Test:
-
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Test with catch2
-        shell: bash
-        run: |
-          make clean
-          make test
-          ./test
-
   Ubuntu_Test:
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
